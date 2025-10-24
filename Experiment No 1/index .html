@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anjuman-I-Islam's Kalsekar Technical Campus</title>
+
+  <style>
+    /* Reset some defaults */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e6f2ff 0%, #ffffff 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #20435c;
+      color: #f0f5f9;
+      padding: 30px 15px;
+      text-align: center;
+      border-bottom: 4px solid #f5a623;
+      letter-spacing: 0.05em;
+    }
+
+    header h1 {
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #f5a623;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #20435c;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 0 18px;
+      padding: 6px 10px;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #20435c;
+      color: #fff;
+      outline: none;
+    }
+
+    main {
+      max-width: 850px;
+      background: #fff;
+      margin: 30px auto 50px auto;
+      padding: 30px 35px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(32, 67, 92, 0.15);
+    }
+
+    h2 {
+      font-family: 'Georgia', serif;
+      color: #20435c;
+      margin-bottom: 15px;
+      font-size: 1.9rem;
+      border-bottom: 3px solid #f5a623;
+      padding-bottom: 6px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 22px;
+      line-height: 1.55;
+    }
+
+    /* Image Section */
+    .college-image {
+      text-align: center;
+      margin: 25px 0 35px;
+    }
+
+    .college-image img {
+      max-width: 720px;
+      width: 100%;
+      border-radius: 15px;
+      border: 6px solid #f5a623;
+      box-shadow: 0 6px 15px rgba(245, 166, 35, 0.4);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .college-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .college-image figcaption {
+      color: #777;
+      font-style: oblique;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px;
+      margin-top: 12px;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 1rem;
+      color: #20435c;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #f5a623;
+      color: white;
+      border-radius: 8px 8px 0 0;
+      font-weight: 700;
+    }
+
+    tr {
+      background-color: #fef9f0;
+      box-shadow: 0 2px 4px rgba(32, 67, 92, 0.1);
+      transition: background-color 0.3s;
+      border-radius: 12px;
+    }
+
+    tr:hover {
+      background-color: #fff2cc;
+    }
+
+    tr td:first-child {
+      font-weight: 600;
+      color: #15394e;
+    }
+
+    /* Form Styling */
+    form {
+      background-color: #f5f8fa;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(32, 67, 92, 0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #20435c;
+      font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      border: 2px solid #f5a623;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #20435c;
+      background-color: #fffef9;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: #20435c;
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      padding: 14px 28px;
+      margin-right: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #f5a623;
+      color: #20435c;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #20435c;
+      color: #f0f5f9;
+      padding: 18px 15px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-top: 4px solid #f5a623;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 8px 0;
+      }
+
+      main {
+        padding: 25px 20px;
+        margin: 20px 10px 40px;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Anjuman-I-Islam's Kalsekar Technical Campus</h1>
+    <p>Affiliated to the University of Mumbai | Approved by AICTE</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#departments">Departments</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>🏫 Home Page</h2>
+      <p>
+        Welcome to Anjuman-I-Islam’s Kalsekar Technical Campus (AIKTC).  
+        Our campus provides quality education, state-of-the-art facilities,  
+        and a student-friendly learning environment to prepare future engineers,  
+        architects, pharmacists, and managers.
+      </p>
+
+      <!-- IMAGE SECTION ADDED BELOW -->
+      <figure class="college-image">
+        <img src="download.png" alt="AIKTC Campus Building" />
+        <figcaption>AIKTC Campus - A Place for Innovation and Learning</figcaption>
+      </figure>
+    </section>
+
+    <section id="about">
+      <h2>ℹ️ About Us</h2>
+      <p>
+        Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC) offers Engineering,  
+        Architecture, Pharmacy, and Management programs.  
+        Our mission is to provide world-class education and nurture professionals  
+        with strong ethical values and innovative skills.
+      </p>
+    </section>
+
+    <section id="departments">
+      <h2>🎓 Departments</h2>
+      <table>
+        <tr>
+          <th>Department</th>
+          <th>Head</th>
+          <th>Contact</th>
+        </tr>
+        <tr>
+          <td>Computer Science & Engineering (AI & ML)</td>
+          <td>Dr. Salim Shaikh</td>
+          <td>aiml@aiktc.ac.in</td>
+        </tr>
+        <tr>
+          <td>Computer Science & Engineering (Data Science)</td>
+          <td>Dr. Tabassum</td>
+          <td>ds@aiktc.ac.in</td>
+        </tr>
+        <tr>
+          <td>Computer Engineering</td>
+          <td>Dr. Tabrez Khan</td>
+          <td>co@aiktc.edu</td>
+        </tr>
+        <tr>
+          <td>Civil Engineering</td>
+          <td>Prof. Nadeem Khan</td>
+          <td>ce@aiktc.edu</td>
+        </tr>
+        <tr>
+          <td>Mechanical Engineering</td>
+          <td>Prof. Yusuf Sheikh</td>
+          <td>me@aiktc.edu</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="contact">
+      <h2>📞 Contact Us</h2>
+      <form onsubmit="return sendMessage()">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter your full name" required />
+
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Enter your email" required />
+
+        <label>Message:</label>
+        <textarea name="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+        <input type="submit" value="Send" />
+        <input type="reset" value="Clear" />
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Anjuman-I-Islam's Kalsekar Technical Campus | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function sendMessage() {
+      alert("Thank you! Your message has been received successfully.");
+      return false; // prevent actual form submission
+    }
+  </script>
+</body>
+</html>
