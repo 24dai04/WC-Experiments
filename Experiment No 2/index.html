@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Haven</title>
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <div class="logo">Book Haven</div>
+      <nav class="menu-links">
+        <a href="#welcome">Home</a>
+        <a href="#who-we-are">About</a>
+        <a href="#genre-list">Genres</a>
+        <a href="#library">Library</a>
+        <a href="#get-in-touch">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="welcome">
+    <section class="hero-section container">
+      <div class="hero-content-left">
+        <h1>Explore Your Next Favorite Book</h1>
+        <p class="subtitle">From timeless novels to modern inspiration — delivered right to you.</p>
+        <div class="hero-buttons">
+          <a href="#library" class="btn btn-primary">See Our Library</a>
+          <a href="#get-in-touch" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-content-right">
+        <img src="images/hero_books.jpg" alt="Pile of Books" class="hero-image">
+      </div>
+    </section>
+
+    <!-- About and Genres -->
+    <section class="container about-genres">
+      <article class="about-section">
+        <h2>Who We Are</h2>
+        <p>At Book Haven, we curate a selection of fiction, biographies, and self-growth books.
+          Enjoy easy browsing, detailed insights, and a hassle-free way to purchase your favorite titles.</p>
+      </article>
+
+      <aside id="genre-list" class="genre-listing">
+        <h2>Genres</h2>
+        <ul>
+          <li>Inspirational</li>
+          <li>Memoirs</li>
+          <li>Literary Classics</li>
+          <li>Personal Growth</li>
+          <li>Tech & Programming</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- Library Section -->
+    <section id="library" class="container library-section">
+      <h2 class="section-header">Our Library</h2>
+
+      <div class="book-cards">
+        <!-- Book 1 -->
+        <article class="book-card">
+          <img src="https://m.media-amazon.com/images/I/713jIoMO3UL.jpg" alt="Sapiens" class="book-image">
+          <div class="book-details">
+            <h3>Sapiens: A Brief History of Humankind</h3>
+            <p class="author">By: Yuval Noah Harari</p>
+            <p class="cost">Price: ₹550</p>
+            <a href="#purchase" class="btn btn-success">Purchase</a>
+          </div>
+        </article>
+
+        <!-- Book 2 -->
+        <article class="book-card">
+          <img src="https://m.media-amazon.com/images/I/81KGjsBXQ7L.jpg" alt="Becoming" class="book-image">
+          <div class="book-details">
+            <h3>Becoming</h3>
+            <p class="author">By: Michelle Obama</p>
+            <p class="cost">Price: ₹420</p>
+            <a href="#purchase" class="btn btn-success">Purchase</a>
+          </div>
+        </article>
+
+        <!-- Book 3 -->
+        <article class="book-card">
+          <img src="https://m.media-amazon.com/images/I/71T7aD3EOTL._UF1000,1000_QL80_.jpg" alt="Clean Code" class="book-image">
+          <div class="book-details">
+            <h3>Clean Code</h3>
+            <p class="author">By: Robert C. Martin</p>
+            <p class="cost">Price: ₹650</p>
+            <a href="#purchase" class="btn btn-success">Purchase</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Purchase Section -->
+    <section id="purchase" class="container purchase-section">
+      <div class="simple-card">
+        <h3>Place Your Order</h3>
+        <p>Want to order a book? Fill out the form below with the book title and your details. We'll get back to you shortly!</p>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="get-in-touch" class="container contact-section">
+      <div class="contact-card">
+        <h2>Contact Us</h2>
+        <form id="contactForm" onsubmit="return handleFormSubmit(event)">
+          <div class="form-grid">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Your full name" required>
+            </label>
+            <label>
+              Email Address
+              <input type="email" name="email" placeholder="your.email@example.com" required>
+            </label>
+            <label>
+              Book Title
+              <input type="text" name="book" placeholder="Book you're interested in" required>
+            </label>
+            <label class="full-width">
+              Message
+              <textarea name="message" rows="4" placeholder="Additional information (optional)"></textarea>
+            </label>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="currentYear"></span> Book Haven — All rights reserved.</p>
+      <small>Stay connected with us on social media</small>
+    </div>
+  </footer>
+
+  <script>
+    // Show current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      alert('Thank you, ' + form.name.value + '! Your request for "' + form.book.value + '" has been received.');
+      form.reset();
+      return false;
+    }
+
+    // Toggle menu for mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuLinks = document.querySelector('.menu-links');
+    menuToggle.addEventListener('click', () => {
+      menuLinks.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
