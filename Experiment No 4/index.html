@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up Form</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f4f8;
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .signup-card {
+      background-color: #ffffff;
+      width: 400px;
+      border-radius: 12px;
+      padding: 35px 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      border-top: 8px solid #4a90e2;
+    }
+
+    .signup-card h1 {
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 25px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 18px;
+      color: #555;
+      font-size: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      margin-top: 8px;
+      padding: 12px 14px;
+      font-size: 15px;
+      border-radius: 7px;
+      border: 1.5px solid #bbb;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    textarea:focus {
+      border-color: #4a90e2;
+      outline: none;
+      box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 12px 0;
+      width: 48%;
+      border-radius: 7px;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      color: white;
+      user-select: none;
+    }
+
+    button.submit-btn {
+      background-color: #4a90e2;
+    }
+
+    button.submit-btn:hover {
+      background-color: #357ABD;
+    }
+
+    button.reset-btn {
+      background-color: #b0b0b0;
+    }
+
+    button.reset-btn:hover {
+      background-color: #8c8c8c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-card">
+    <h1>Create Account</h1>
+    <form id="signupForm" novalidate>
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" placeholder="Your first name" />
+
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" placeholder="Your last name" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" />
+
+      <label for="emailAddress">Email</label>
+      <input type="email" id="emailAddress" name="emailAddress" placeholder="you@example.com" />
+
+      <label for="phone">Mobile Number</label>
+      <input type="text" id="phone" name="phone" placeholder="10-digit number" maxlength="10" />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="4" placeholder="Your address"></textarea>
+
+      <div class="actions">
+        <button type="submit" class="submit-btn">Sign Up</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const firstName = this.firstName.value.trim();
+      const lastName = this.lastName.value.trim();
+      const password = this.password.value.trim();
+      const email = this.emailAddress.value.trim();
+      const phone = this.phone.value.trim();
+      const address = this.address.value.trim();
+
+      // Validate first name: at least 3 letters, only alphabets
+      if (!/^[A-Za-z]{3,}$/.test(firstName)) {
+        alert('⚠️ First name must be at least 3 letters and contain only alphabets.');
+        this.firstName.focus();
+        return;
+      }
+
+      // Validate last name: not empty
+      if (lastName === '') {
+        alert('⚠️ Last name cannot be empty.');
+        this.lastName.focus();
+        return;
+      }
+
+      // Validate password: at least 6 chars
+      if (password.length < 6) {
+        alert('⚠️ Password must be at least 6 characters.');
+        this.password.focus();
+        return;
+      }
+
+      // Validate email using simpler regex, case insensitive
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if (!emailRegex.test(email)) {
+        alert('⚠️ Please enter a valid email address.');
+        this.emailAddress.focus();
+        return;
+      }
+
+      // Validate phone: exactly 10 digits
+      if (!/^\d{10}$/.test(phone)) {
+        alert('⚠️ Mobile number must be exactly 10 digits.');
+        this.phone.focus();
+        return;
+      }
+
+      // Validate address: not empty
+      if (address === '') {
+        alert('⚠️ Address cannot be empty.');
+        this.address.focus();
+        return;
+      }
+
+      alert(`✅ Registration Successful!\nName: ${firstName} ${lastName}\nEmail: ${email}`);
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
