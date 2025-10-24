@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Haven - Your Online Library</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #f5f7fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header.banner {
+      background: linear-gradient(135deg, #007bff 15%, #00bfff 85%);
+      color: white;
+      padding: 4rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+    }
+    header.banner h1 {
+      font-weight: 700;
+      font-size: 2.75rem;
+    }
+    header.banner p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    header.banner img {
+      border-radius: 10px;
+      max-width: 280px;
+      box-shadow: 0 5px 15px rgba(0,123,255,.4);
+    }
+    nav.navbar {
+      background-color: #212529;
+    }
+    nav.navbar a.nav-link {
+      color: #cfd8dc;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav.navbar a.nav-link:hover {
+      color: #00bfff;
+    }
+    section.about-section, section.categories-section {
+      margin-bottom: 3rem;
+    }
+    section.about-section h3, section.categories-section h3 {
+      color: #007bff;
+      margin-bottom: 1.5rem;
+    }
+    ul.category-list {
+      list-style-type: none;
+      padding-left: 0;
+      font-weight: 600;
+    }
+    ul.category-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #dee2e6;
+      cursor: default;
+    }
+    ul.category-list li:last-child {
+      border-bottom: none;
+    }
+    .book-card img {
+      height: 260px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .book-card {
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+      transition: transform 0.2s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgb(0 0 0 / 0.15);
+    }
+    footer.site-footer {
+      background-color: #007bff;
+      color: white;
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer.site-footer small {
+      display: block;
+      margin-top: 0.4rem;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a href="#" class="navbar-brand text-white fw-bold">Book Haven</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="#welcome" class="nav-link">Welcome</a></li>
+          <li class="nav-item"><a href="#who-we-are" class="nav-link">Who We Are</a></li>
+          <li class="nav-item"><a href="#genres" class="nav-link">Genres</a></li>
+          <li class="nav-item"><a href="#library" class="nav-link">Library</a></li>
+          <li class="nav-item"><a href="#reach-out" class="nav-link">Reach Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="welcome" class="banner container d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <div class="text-content flex-grow-1 me-md-4">
+      <h1>Your Gateway to Great Reads</h1>
+      <p>Explore timeless classics, inspiring biographies, and empowering self-help books — delivered right to your home.</p>
+      <a href="#library" class="btn btn-light btn-lg me-2">Explore Books</a>
+      <a href="#reach-out" class="btn btn-outline-light btn-lg">Get in Touch</a>
+    </div>
+    <div class="image-content d-none d-md-block">
+      <img src="images/hero_books.jpg" alt="Books stacked on table" />
+    </div>
+  </header>
+
+  <!-- About and Genres -->
+  <section class="container">
+    <div class="row mb-5">
+      <article id="who-we-are" class="col-lg-7 about-section">
+        <h3>About Book Haven</h3>
+        <p>
+          At Book Haven, we curate an extensive collection of literary masterpieces, biographies, and modern personal growth books.
+          Enjoy seamless browsing, detailed summaries, and easy ordering to get your favorite titles quickly.
+        </p>
+      </article>
+      <aside id="genres" class="col-lg-5 categories-section">
+        <h3>Book Genres</h3>
+        <ul class="category-list">
+          <li>Motivation & Inspiration</li>
+          <li>Biographies & Memoirs</li>
+          <li>Classic Literature</li>
+          <li>Self-Development</li>
+          <li>Technology & Programming</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Book Cards -->
+  <section id="library" class="container">
+    <h3 class="text-primary mb-4">Our Collection</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      
+      <div class="col">
+        <div class="card book-card h-100">
+          <img src="https://m.media-amazon.com/images/I/713jIoMO3UL.jpg" alt="Sapiens" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Sapiens: A Brief History of Humankind</h5>
+            <p class="text-muted mb-1">By: Yuval Noah Harari</p>
+            <p class="fw-bold mb-3">₹550</p>
+            <a href="#purchase" class="btn btn-primary mt-auto w-100">Order Now</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="card book-card h-100">
+          <img src="https://m.media-amazon.com/images/I/81KGjsBXQ7L.jpg" alt="Becoming" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Becoming</h5>
+            <p class="text-muted mb-1">By: Michelle Obama</p>
+            <p class="fw-bold mb-3">₹420</p>
+            <a href="#purchase" class="btn btn-primary mt-auto w-100">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card book-card h-100">
+          <img src="https://m.media-amazon.com/images/I/71T7aD3EOTL._UF1000,1000_QL80_.jpg" alt="Clean Code" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Clean Code</h5>
+            <p class="text-muted mb-1">By: Robert C. Martin</p>
+            <p class="fw-bold mb-3">₹650</p>
+            <a href="#purchase" class="btn btn-primary mt-auto w-100">Order Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Purchase Section -->
+  <section id="purchase" class="container my-5 p-4 bg-white rounded shadow-sm">
+    <h4 class="text-primary mb-3">Place Your Order</h4>
+    <p>Fill out the form below with your details and the book you want, and we'll get back to you shortly!</p>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="reach-out" class="container mb-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="text-primary mb-3">Contact Us</h4>
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Your full name" />
+            </div>
+            <div class="col-md-6">
+              <label for="emailAddr" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="emailAddr" name="emailAddr" placeholder="name@example.com" />
+            </div>
+            <div class="col-md-6">
+              <label for="bookTitle" class="form-label">Book Title</label>
+              <input type="text" class="form-control" id="bookTitle" name="bookTitle" placeholder="Which book are you interested in?" />
+            </div>
+            <div class="col-12">
+              <label for="msg" class="form-label">Message</label>
+              <textarea class="form-control" id="msg" name="msg" rows="4" placeholder="Additional info or questions"></textarea>
+            </div>
+            <div class="col-12 d-flex gap-2">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <button type="reset" class="btn btn-outline-secondary">Reset Form</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="currentYear"></span> Book Haven — All Rights Reserved.</p>
+      <small>Stay connected with us on social media for latest updates</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
