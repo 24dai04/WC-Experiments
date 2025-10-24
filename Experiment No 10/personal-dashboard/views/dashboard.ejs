@@ -1,0 +1,99 @@
+<%- include('layout', { body: `
+<div class="row g-3">
+  <!-- Weather + City -->
+  <div class="col-lg-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title mb-0">Weather</h5>
+          <form class="d-flex" method="post" action="/profile/city">
+            <input name="city" class="form-control form-control-sm me-2" placeholder="City" value="${user.city || 'Mumbai'}" />
+            <button class="btn btn-sm btn-outline-primary">Set</button>
+          </form>
+        </div>
+        <hr />
+        ${weather ? `
+          <div class="d-flex align-items-center">
+            <img alt="icon" src="https://openweathermap.org/img/wn/${weather.icon}@2x.png" />
+            <div class="ms-2">
+              <div class="h4 mb-0">${weather.temp}&deg;C</div>
+              <div class="text-muted">${weather.name} — ${weather.desc}</div>
+            </div>
+          </div>` : `<div class="text-muted">No weather data.</div>`
+        }
+      </div>
+    </div>
+    <div class="card shadow-sm mt-3">
+      <div class="card-body">
+        <h5 class="card-title mb-2">Quote</h5>
+        <blockquote class="blockquote">
+          <p>${quote.content}</p>
+          <footer class="blockquote-footer">${quote.author}</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tasks -->
+  <div class="col-lg-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">To-Do</h5>
+        <form class="d-flex mb-3" method="post" action="/tasks">
+          <input name="title" class="form-control me-2" placeholder="Add task..." required />
+          <button class="btn btn-primary">Add</button>
+        </form>
+        <ul class="list-group">
+          ${tasks.length ? tasks.map(t => `
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <form class="d-inline" method="post" action="/tasks/${t._id}/toggle">
+                  <button class="btn btn-sm ${t.done ? 'btn-success' : 'btn-outline-secondary'}">
+                    ${t.done ? '✓' : '○'}
+                  </button>
+                </form>
+                <span class="ms-2 ${t.done ? 'text-decoration-line-through text-muted' : ''}">${t.title}</span>
+              </div>
+              <form method="post" action="/tasks/${t._id}/delete">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </li>
+          `).join("") : `<li class="list-group-item text-muted">No tasks yet.</li>`}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="col-lg-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Notes</h5>
+        <form method="post" action="/notes" class="mb-3">
+          <input name="title" class="form-control mb-2" placeholder="Title" />
+          <textarea name="body" class="form-control" rows="3" placeholder="Write a quick note..."></textarea>
+          <div class="text-end mt-2">
+            <button class="btn btn-primary">Save Note</button>
+          </div>
+        </form>
+
+        ${(notes.length ? notes : []).map(n => `
+          <div class="border rounded p-2 mb-2">
+            <form method="post" action="/notes/${n._id}/update">
+              <input name="title" class="form-control form-control-sm mb-1" value="${n.title || ''}" />
+              <textarea name="body" class="form-control form-control-sm" rows="2">${n.body || ''}</textarea>
+              <div class="d-flex justify-content-between mt-2">
+                <button class="btn btn-sm btn-outline-success">Update</button>
+              </div>
+            </form>
+            <form class="mt-1" method="post" action="/notes/${n._id}/delete">
+              <button class="btn btn-sm btn-outline-danger">Delete</button>
+            </form>
+          </div>
+        `).join("")}
+        ${notes.length ? "" : `<div class="text-muted">No notes yet.</div>`}
+      </div>
+    </div>
+  </div>
+</div>
+` }) %>

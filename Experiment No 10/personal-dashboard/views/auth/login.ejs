@@ -1,0 +1,26 @@
+<%- include('../layout', { body: `
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="mb-3">Login</h3>
+        ${typeof error !== 'undefined' ? `<div class="alert alert-danger">${error}</div>` : ''}
+        <form method="post" action="/login">
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input name="email" type="email" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" required />
+          </div>
+          <button class="btn btn-primary w-100">Login</button>
+          <div class="text-center mt-3">
+            <a href="/register">Create an account</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+` }) %>
